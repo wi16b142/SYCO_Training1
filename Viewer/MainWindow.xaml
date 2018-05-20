@@ -13,8 +13,8 @@
     <Grid>
         <DataGrid Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Name"/>
-                <DataGridTextColumn Binding="{Binding Age}" ClipboardContentBinding="{x:Null}" Header="Age"/>
                 <DataGridTextColumn Binding="{Binding Salary}" ClipboardContentBinding="{x:Null}" Header="Salary"/>
             </DataGrid.Columns>
 

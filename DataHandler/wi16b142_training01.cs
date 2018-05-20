@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataHandler.Model
+namespace DataHandler
 {
     using System;
     using System.Collections.Generic;

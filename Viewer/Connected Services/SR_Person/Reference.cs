@@ -23,7 +23,7 @@ namespace Viewer.SR_Person {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AgeField;
+        private System.Guid IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -42,14 +42,14 @@ namespace Viewer.SR_Person {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Age {
+        public System.Guid Id {
             get {
-                return this.AgeField;
+                return this.IdField;
             }
             set {
-                if ((this.AgeField.Equals(value) != true)) {
-                    this.AgeField = value;
-                    this.RaisePropertyChanged("Age");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -101,10 +101,10 @@ namespace Viewer.SR_Person {
         System.Threading.Tasks.Task<Viewer.SR_Person.Data[]> QueryAllDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_Person/AddData", ReplyAction="http://tempuri.org/IService_Person/AddDataResponse")]
-        Viewer.SR_Person.Data AddData(string name, int age, int salary);
+        Viewer.SR_Person.Data AddData(System.Guid id, string name, int salary);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_Person/AddData", ReplyAction="http://tempuri.org/IService_Person/AddDataResponse")]
-        System.Threading.Tasks.Task<Viewer.SR_Person.Data> AddDataAsync(string name, int age, int salary);
+        System.Threading.Tasks.Task<Viewer.SR_Person.Data> AddDataAsync(System.Guid id, string name, int salary);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -142,12 +142,12 @@ namespace Viewer.SR_Person {
             return base.Channel.QueryAllDataAsync();
         }
         
-        public Viewer.SR_Person.Data AddData(string name, int age, int salary) {
-            return base.Channel.AddData(name, age, salary);
+        public Viewer.SR_Person.Data AddData(System.Guid id, string name, int salary) {
+            return base.Channel.AddData(id, name, salary);
         }
         
-        public System.Threading.Tasks.Task<Viewer.SR_Person.Data> AddDataAsync(string name, int age, int salary) {
-            return base.Channel.AddDataAsync(name, age, salary);
+        public System.Threading.Tasks.Task<Viewer.SR_Person.Data> AddDataAsync(System.Guid id, string name, int salary) {
+            return base.Channel.AddDataAsync(id, name, salary);
         }
     }
 }
