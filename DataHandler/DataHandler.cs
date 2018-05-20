@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using DataHandler.Model;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace DataRepository
 {
     public class DataHandler
     {
-        public static List<Data> repoA;
+        #region Using Static Lists
+        /*public static List<Data> repoA;
         
         public  static List<Data> GetInstance()
         {
@@ -37,5 +39,27 @@ namespace DataRepository
             repoA.Add(newData);
             return newData;
         }
+        */
+        #endregion
+
+        #region Using DB
+        syco_trainingEntities dbmodel = new syco_trainingEntities();
+
+        public List<Data> QueryAllData()
+        {
+            return dbmodel.wi16b142_training01.Select(result => new Data() {
+                Id = (Guid)result.Id,
+                Name = result.Name,
+                Salary = (int)result.Salary
+            }).ToList();
+        }
+
+        public Data AddData(Guid id, string name, int salary)
+        {
+            return null;
+        }
+
+
+        #endregion
     }
 }

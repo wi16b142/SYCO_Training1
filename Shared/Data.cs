@@ -12,20 +12,26 @@ namespace Shared
     {
         public Data()
         {
+            Name = "";
         }
 
-        public Data(string name, int age, int salary)
+        public Data(Guid id, string name, int salary)
         {
             Name = name;
-            Age = age;
+            Id = Guid.NewGuid();
             Salary = salary;
         }
 
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public int Age { get; set; }
+        public Guid Id { get; set; }
         [DataMember]
         public int Salary { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

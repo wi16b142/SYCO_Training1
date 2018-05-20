@@ -15,6 +15,6 @@ namespace ServiceProvider
         List<Data> QueryAllData();
 
         [OperationContract]
-        Data AddData(string name, int age, int salary);
+        Data AddData(Guid id, string name, int salary);
     }
 }
